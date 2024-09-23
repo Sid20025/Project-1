@@ -32,7 +32,7 @@ public enum Provider {
 
         @Override
         public String toString() {
-            return String.format("[%s, %s]", name(), location);
+            return String.format("[%s, %s, %s]", name(), location.toString(), specialty);
         }
     }
 

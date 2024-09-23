@@ -30,6 +30,15 @@ public enum Timeslot {
     // Method to display the time in a readable format
     @Override
     public String toString() {
-        return String.format("%02d:%02d", hour, minute);
+        String period;
+        if(hour >= 12){
+            period = "PM";
+        }
+        else{
+            period = "AM";
+        }
+        int newHour = hour % 12;
+        return String.format("%d:%02d %s", newHour, minute, period);
+
     }
 }

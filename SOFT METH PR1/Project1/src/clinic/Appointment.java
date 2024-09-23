@@ -7,34 +7,47 @@ public class Appointment implements Comparable <Appointment> {
     private Provider provider;
 
 
-    public Appointment (Date date, Timeslot timeslot, Profile patient, Provider provider){
+    public Appointment(Date date, Timeslot timeslot, Profile patient, Provider provider) {
         this.date = date;
         this.timeslot = timeslot;
         this.patient = patient;
         this.provider = provider;
     }
+
     @Override
-    public int compareTo(Appointment a, Appointment b){
-        if()
+    public int compareTo(Appointment b) {
+        return 0;
     }
-    public Profile getPatient(Appointment a){
-        return a.patient;
+
+    public Profile getPatient() {
+        return patient;
     }
-    public Timeslot getTimeslot(Appointment a){
-        return a.timeslot;
+
+    public Timeslot getTimeslot() {
+        return timeslot;
     }
-    public Date getDate(Appointment a){
-        return a.date;
+
+    public Date getDate() {
+        return date;
     }
+
     @Override
-    public boolean equals( Appointment a, Appointment b){
-        if(a.date == b.date){
-            if(a.timeslot == b.timeslot){
-                if(a.patient ==b.patient){
-                    return true
+    public boolean equals(Object a) {
+        if (this.date == b.date) {
+            if (this.timeslot == b.timeslot) {
+                if (this.patient == b.patient) {
+                    return true;
                 }
             }
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return date.toString() + " " + timeslot.toString() + " " + patient.toString() + " " + provider.toString();
+    }
 }
+
+
+

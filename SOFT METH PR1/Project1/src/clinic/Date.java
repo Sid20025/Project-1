@@ -1,6 +1,6 @@
 package clinic;
 
-public class Date {
+public class Date implements Comparable <Date>{
     private int date;
     private int month;
     private int year;
@@ -12,6 +12,15 @@ public class Date {
         this.date = date;
         this.month = month;
         this.year = year;
+    }
+    public int getDate(){
+        return date;
+    }
+    public int getMonth(){
+        return month;
+    }
+    public int getYear(){
+        return year;
     }
     public boolean isValid(int date, int month, int year){
         if(month < 1 || month > 12 || date < 1 || date > 31){
@@ -37,27 +46,35 @@ public class Date {
         }
         return true;
     }
-    public int compareTo (Date a, Date b){
-        if(a.year < b.year){
+    @Override
+    public int compareTo (Date b){
+        if(this.year < b.year){
             return -1;
         }
         else{
-            if(a.year>b.year){
+            if(this.year>b.year){
                 return 1;
             }
         }
-        if (a.month < b.month) {
+        if (this.month < b.month) {
             return -1;
         }
-        if(a.month>b.month){
+        if(this.month>b.month){
             return 1;
         }
-        if(a.date < b.date){
+        if(this.date < b.date){
             return -1;
         }
-        if(a.date>b.date){
+        if(this.date>b.date){
             return 1;
         }
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return date + "/" + month + "/" + year;
+    }
+
+
 }
