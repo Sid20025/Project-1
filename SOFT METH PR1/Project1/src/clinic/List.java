@@ -13,7 +13,7 @@ public class List {
                 return i;
             }
         }
-        return NUll;
+        return -1;
     } //helper method
     private void grow(){
         Appointment[] newAppointments = new Appointment[size + 4];

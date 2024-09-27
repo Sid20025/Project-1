@@ -14,4 +14,11 @@ public class Profile {
     public String toString(){
         return fname + " " + lname + " " + dob;
     }
+    public String getFname(){
+        return fname;
+    }
+    public String getLname(){
+        return lname;
+    }
+
 }

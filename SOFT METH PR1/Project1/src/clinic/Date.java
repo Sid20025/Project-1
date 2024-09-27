@@ -1,4 +1,5 @@
 package clinic;
+import java.util.Calendar;
 
 public class Date implements Comparable <Date>{
     private int date;
@@ -44,7 +45,33 @@ public class Date implements Comparable <Date>{
                 }
             }
         }
+        if(isPastDate()){
+            return false;
+        }
         return true;
+    }
+    private boolean isPastDate() {
+        Calendar today = Calendar.getInstance(); // Get today's date
+
+        // Get current year, month, and day
+        int currentYear = today.get(Calendar.YEAR);
+        int currentMonth = today.get(Calendar.MONTH) + 1; // Months are 0-based in Calendar, so we add 1
+        int currentDay = today.get(Calendar.DAY_OF_MONTH);
+
+        // Compare the year first
+        if (year < currentYear) {
+            return true; // The date is in a previous year
+        } else if (year == currentYear) {
+            // If the year is the same, compare the month
+            if (month < currentMonth) {
+                return true; // The date is in a previous month this year
+            } else if (month == currentMonth) {
+                // If the month is the same, compare the day
+                return day < currentDay; // The date is earlier in the current month
+            }
+        }
+
+        return false; // The date is today or in the future
     }
     @Override
     public int compareTo (Date b){
